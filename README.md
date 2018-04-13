@@ -1,2 +1,2 @@
 # ES6_study
-ES6 学
+ES6 学习学习
