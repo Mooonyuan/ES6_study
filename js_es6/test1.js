@@ -127,3 +127,38 @@
 /* ES6 6种声明变量的方法 var function let const import class */
 	//顶层属性 var function
 	//其他都是非顶层属性
+	//var a = 2;
+	// window.a //2
+	// let b = 3;
+	// window.b //undefined
+	/* 顶层对象 */
+	// 浏览器指的是 window
+	// node 指的是 global
+	// 浏览器和web worker 指的是 self
+
+/* 变量的解构与赋值 */
+	// function* fibs() {
+	// 	let a = 0;
+	// 	let b = 1;
+	// 	while (true) {
+	// 		yield a;
+	// 		[ a, b ] = [ b, a + b ];
+	// 		console.log( [a,b] )
+	// 	}
+	// }
+	// let [first, second, third, fourth, fifth, sixth,seven] = fibs();
+	// console.log( seven );//[0,1,1,2,3,5,8]
+
+	// let [a] = 'hello';
+	// console.log(a)
+
+	/* 字符串的扩展 */
+	
+	//includes() 找到参数字符串 第二个参数表示从第N个位置到最后
+	//startsWith() 参数字符串是否在原字符串头部 第二个参数表示从第N个位置到最后
+	//endsWith() 参数字符串是否在原字符串尾部 第二个参数表示前N个位置
+	// let s = 'hello word';
+	// console.log( s.endsWith('o',5) );
+
+	//repeat()
+	console.log( 'quan'.repeat(0) );
