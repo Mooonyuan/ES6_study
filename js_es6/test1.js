@@ -160,5 +160,59 @@
 	// let s = 'hello word';
 	// console.log( s.endsWith('o',5) );
 
-	//repeat()
-	console.log( 'quan'.repeat(0) );
+	//repeat() 表示将原字符串重复N次
+	// console.log( 'quan'.repeat(2) );
+
+	//padStart() padEnd() 自动补全
+	// console.log( 'quan'.padStart(6,'oo') );
+	// console.log( 'quan'.padEnd(6,'oo') );
+	//常见用途
+	//补全提示字符串
+	// console.log( '12'.padStart(10,'YYYY-MM-DD') );
+	//补全指定位数
+	// console.log( '12'.padStart(10,'0') );
+
+	//模板字符串 `` ${} 嵌入字符串 append
+	//所有的换行将会保留 如果不需要保留 则可以使用.trim();
+	//如果需要使用` 则用\转义即可
+	// console.log( `春天来了` )
+	// console.log( `\`春天来了` )
+	// let abc = '哼 胡说';
+	// console.log( `${abc}` )
+
+	//${} 可以使用运算，对象，函数
+	// let x = 1,y = 2;
+	// console.log( `${x} + ${y} == ${ x + y }` );
+	// let obj = {x : 2,y : 3};
+	// console.log( `${ obj.x + obj.y }` )
+	// function fn(){
+	// 	return 'hello quan';
+	// }
+	// console.log( `${fn()}` )
+
+	// 嵌套模板
+	// const tmpl = addrs =>`
+	// 	<table>
+	// 	${addrs.map(addr =>`
+	// 		<tr><td>${addr.first}</td></tr>
+	// 		<tr><td>${addr.last}</td></tr>
+	// 	`).join('')}
+	// 	</table>
+	// `
+	// const data = [
+	// 	{  first:'<Jane>',last:'Bond'},
+	// 	{  first:'Lars',last:'<Croft>' }
+	// ]
+
+	// console.log( tmpl(data) )
+
+	//需要引用模板字符串本身
+	//写法一
+	// let str = 'return ' + '`hello ${name}`';
+	// let func = new Function('name',str);
+	// console.log ( func('quan') );
+	//写法二
+	let str = '(name) => `hello ${name}`';
+	let func = eval.call(null,str);
+	console.log( func('quan') )
+	console.log( eval )
