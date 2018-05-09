@@ -212,8 +212,8 @@
 	// let func = new Function('name',str);
 	// console.log ( func('quan') );
 	//写法二
-	let str = '(name) => `hello ${name}`';
-	let func = eval.call(null,str);
-	console.log( func('quan') )
-	console.log( eval )
-	666
+	// let str = '(name) => `hello ${name}`';
+	// let func = eval.call(null,str);
+	// console.log( func('quan') )
+	// console.log( eval )
+	console.log( 'test-git' )
