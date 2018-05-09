@@ -1,5 +1,3 @@
-'use strict';
-
 /*let 和 const 命令	*/
 //不提升变量 存在暂时性死区
 // 01.let 只在let命令坐在的代码块内有效
@@ -218,4 +216,4 @@
 // let func = eval.call(null,str);
 // console.log( func('quan') )
 // console.log( eval )
-console.log('test-git');
+"use strict";
