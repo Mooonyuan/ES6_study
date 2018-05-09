@@ -216,3 +216,4 @@
 	let func = eval.call(null,str);
 	console.log( func('quan') )
 	console.log( eval )
+	666
