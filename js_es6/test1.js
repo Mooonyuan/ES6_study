@@ -216,3 +216,31 @@
 	// let func = eval.call(null,str);
 	// console.log( func('quan') )
 	// console.log( eval )
+
+
+	//正则
+	
+	// console.log( /foo/.test('foo\nbar') )
+	//具名组匹配
+	const data = /(\d{4})-(\d{2})-(\d{2})/;
+
+	// const matchDate = data.exec('1999-02-11');
+
+	// const year = matchDate[1];//1999
+	// const month = matchDate[2];//02
+	// const day = matchDate[3];//11
+
+	//为每一个组指定名字 es2018
+	// const dataName = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+
+	// const nameYear = matchDate.grounp.year;//1999
+	// const nameMonth = matchDate.grounp.month;//02
+	// const nameDay = matchDate.grounp.day;//11
+
+	//正则与 解构和赋值
+	// let {groups: {one, two}} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
+	
+	//替换
+	let dateReplace = '2015-01-02'.replace(data, '(?\d{4})/(?\d{2})/(?\d{2})');
+
+	console.log( dateReplace )
