@@ -241,6 +241,88 @@
 	// let {groups: {one, two}} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
 	
 	//替换
-	let dateReplace = '2015-01-02'.replace(data, '(?\d{4})/(?\d{2})/(?\d{2})');
+	// let dateReplace = '2015-01-02'.replace(data, '(?\d{4})/(?\d{2})/(?\d{2})');
 
-	console.log( dateReplace )
+	// console.log( dateReplace )
+
+	//数值的扩展
+	// Number提供检测数值是否是finite(有限)，不是infinite;  Number.isFinite(),
+	// console.log( Number.isFinite(15) );//true
+	// console.log( Number.isFinite(NaN) );//false
+	// console.log( Number.isFinite('222') );//false
+	// 检测值是否为NAN
+	// console.log( Number.isNaN(NaN) );//true
+	// console.log( Number.isNaN(16) );//false
+	// console.log( Number.isNaN('why' / 0) );//true
+	//取整数或者保留小数位 Number.parseInt()/parseFloat()
+	// console.log(Number.parseFloat( '12.655' ))
+
+	//是否为整数Number.isInteger()
+	// console.log( Number.isInteger( 26 ) );//true
+	// console.log( Number.isInteger( 12.00 ) );//true
+	// console.log( Number.isInteger( 12.35 ) );//false
+
+	// Number.isInteger()存在误判的问题:
+	// 01.由于js采用的是IEEE754标准，数值存储为64位精度格式，数值精度最多可达到53个二进制位数（一个隐藏位和52个有效位）；
+	// 如果数值的精度超过这个限度，第54位及后面的位就会被丢弃
+	// 例如：下面例子是因为小数的精度达到了小数点后的16个十进制位，转成二进制超过了53个二进制位，导致最后的2丢弃了
+	// console.log( Number.isInteger (3.0000000000000002 ));//true
+	//01.如果一个数的绝对值小于Number.MIN_VALUE(5E-324),即js能够分辨的最小值，会被自动转为0.
+
+	//Number.EPSILON 最小误差 只要误差在范围内就认为是相等
+	//例如：console.log( 0.1+0.1 == 0.3 ) //false;
+	//Number.EPSILON的值是2的-52次方 如果我们的误差范围设置为2的-50次方就可以认为是相当的浮点数
+	//Math.abs();取绝对值
+	//Math.pow(a,b);a的b次方
+	// function withErrorMargin (left,right){
+	// 	return Math.abs(left - right) < Number.EPSILON*Math.pow(2,2);
+	// }
+	// console.log ( withErrorMargin(0.1+0.2,0.3) );
+
+	//安全整数 Number.isSafeInteger()
+	//js能表示的整数范围在-2的53次方~2的53次方（不含端点）超过无法精确显示
+	// console.log( Number.isSafeInteger(1.2) );//false,整数
+	// console.log( Number.isSafeInteger(null) );//false
+	// console.log( Number.isSafeInteger( Number.MIN_SAFE_INTEGER - 1 ) );//flase 超出最小范围
+	// console.log( Number.isSafeInteger( Number.MIN_SAFE_INTEGER ) );//true
+	// console.log( Number.isSafeInteger( Number.MAX_SAFE_INTEGER  ) );//true
+	// console.log( Number.isSafeInteger( Number.MAX_SAFE_INTEGER + 1 )  );//false
+
+	//Number.isSafeInteger()实现
+	// function isSafeInteger(n){
+	// 	return (
+	// 		typeof n === 'number' && Math.round(n) === n && Number.MIN_SAFE_INTEGER <= n && n <= Number.MAX_SAFE_INTEGER
+	// 	);
+	// }
+	//注意：不要只验证运算结果 而是要同时验证参与运算的每一个值
+	// function trusty(left,right,result){
+	// 	if(
+	// 		Number.isSafeInteger( left ) &&
+	// 		Number.isSafeInteger( right ) &&
+	// 		Number.isSafeInteger( result )
+	// 	){
+	// 		return result;
+	// 	}
+	// 	throw new RangeError('operation cannot be trusted');
+	// }
+
+	// Math.trunc();//去掉小数部分
+	// console.log( Math.trunc('123.231') );//123 将字符串转成数字在去掉小数部分
+	// console.log( Math.trunc( true ) );//1
+	// console.log( Math.trunc( false ) );//0
+	// console.log( Math.trunc( null ) );//0
+	// console.log( Math.trunc( NaN ) );//NaN
+	// console.log( Math.trunc( 'quan' ) );//NaN
+	// console.log( Math.trunc( undefined ) );//NaN
+
+	// //Math.trunc()；方法的实现
+	// Math.trunc = Math.trunc || function(x){
+	// 	return x < 0 ? Math.ceil(x) : Math.floor(x);
+	// }
+	
+	//Math.sign();正数 负数 0 非数值转换成数值
+	console.log( Math.sign( 55 ) );
+	console.log( Math.sign( -230 ) );//-1
+	console.log( Math.sign( '123' ) );//NaN
+	console.log( Math.sign( 'okkkk' ) );//NaN
+	console.log( Math.sign( undefined ) );//NaN
