@@ -321,8 +321,47 @@
 	// }
 	
 	//Math.sign();正数 负数 0 非数值转换成数值
-	console.log( Math.sign( 55 ) );
-	console.log( Math.sign( -230 ) );//-1
-	console.log( Math.sign( '123' ) );//NaN
-	console.log( Math.sign( 'okkkk' ) );//NaN
-	console.log( Math.sign( undefined ) );//NaN
+	// console.log( Math.sign( 55 ) );//+1
+	// console.log( Math.sign( -230 ) );//-1
+	// console.log( Math.sign( '123' ) );//NaN
+	// console.log( Math.sign( 'okkkk' ) );//NaN
+	// console.log( Math.sign( undefined ) );//NaN
+
+	//Math.cbrt();计算一个数的立方根
+	// console.log ( Math.cbrt(-1) );//-1
+	// console.log( Math.cbrt(8) );//2
+
+	//Math.cbrt();//方法实现
+	// Math.cbrt = Math.cbrt || function(x){
+	// 	var y = Math.pow( Math.cbrt(x),1/3 );
+	// 	return x < 0? -y :y;
+	// }
+
+	//Math.clz32();//返回一个数的32位二进制形式的前导0的个数
+	// << 左移运算符 >> 右移运算符
+	
+	/* 
+		运算计算的是转成二进制的数
+		--这里是右移--
+		例如：2 >> 1 ；//将数字2右移一位
+		01.将2转成二进制 ‘11’ 
+		02.右移一位 ‘10’ -- ‘1’
+		03.得到的值转成十进制 ‘1’的十进制是‘1’
+		注释：右移两位是 ‘0’
+		--这里是左移--
+		例如：2 << 3;//将数字2左移三位
+		01.将2转成二进制‘10’
+		02.左移三位 ‘10’ -- ‘10000’
+		03.得到的值转成十进制 ‘10000’的十进制是‘16’
+	*/
+	// console.log( Math.clz32(9) );//28 9的二进制是1001占4位计算：32 - 4 = 28
+	// console.log( Math.clz32( 1 << 2 ) );//29
+	// console.log( Math.clz32( 2 >> 1 ) );//31
+	// console.log( 1 << 2 );//100
+	// console.log( 2 >> 1 );//1
+
+	//Math.imul();//返回两个数以32位带符号整数形式想成的结果 正确表示精度位
+	//大的数值相乘低数位的值不精确：因为js超过2的53次方的数值无法精确表示
+
+	//Math.fround();//返回单精度浮点数形式
+	
