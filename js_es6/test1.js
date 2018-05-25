@@ -364,4 +364,40 @@
 	//大的数值相乘低数位的值不精确：因为js超过2的53次方的数值无法精确表示
 
 	//Math.fround();//返回单精度浮点数形式
+	//Math.hypot();//返回所有参数的平方和的平方根
+	//只要有一个参数无法转为数值，就会NaN
+	//例如：Math.hypot(3,4);//5,3的平方加上4的平方，等于5的平方
+
+	//函数
+	//01.默认参数
+	//ES6之前
+	// function log(x,y){
+	// 	y = y || ' world';
+	// 	console.log(x,y)
+	// }
+
+	// log('hello');
+	// log('helo','world');
+	// log( 'hello','' );//当第二个参数是空字符串的时候，会默认‘world’
 	
+	//ES6
+	// function log( x,y = 'world'){
+	// 	console.log( x,y );
+	// }
+	// log('hello');
+	// log( 'hello','world' );
+	// log( 'hello','' )
+
+	//ES6函数的参数是默认声明 所以不能用let 或者 const再次声明
+
+	//当传入参数是一个对象
+	// function foo({x,y=5}){
+	// 	console.log( x,y );
+	// }
+	// var x = 100;
+	// function log(p = x+1){
+	// 	console.log( p );
+	// }
+	// log();
+	// x = 102;
+	// log();
